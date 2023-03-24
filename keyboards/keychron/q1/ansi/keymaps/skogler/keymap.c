@@ -18,6 +18,8 @@ enum UnicodeMapEntry {
     arrowUpLong,
     arrowDownShort,
     arrowDownLong,
+    multiplyDot,
+    multiplyCross,
 };
 
 const uint32_t unicode_map[] PROGMEM = {
@@ -29,14 +31,16 @@ const uint32_t unicode_map[] PROGMEM = {
     [uU]  = 0x00DC,
     [us]  = 0x00DF,
     [uS]  = 0x1E9E,
-    [arrowRightShort] = 0x2193,
-    [arrowRightLong] = 0x27F6,
-    [arrowLeftShort] = 0x2190,
-    [arrowLeftLong] = 0x27F5,
-    [arrowUpShort] = 0x2193,
-    [arrowUpLong] = 0x21E7,
-    [arrowDownShort] = 0x2193,
-    [arrowDownLong] = 0x21E9,
+    [arrowRightShort] = 0x2192,
+    [arrowRightLong]  = 0x27F6,
+    [arrowLeftShort]  = 0x2190,
+    [arrowLeftLong]   = 0x27F5,
+    [arrowUpShort]    = 0x2191,
+    [arrowUpLong]     = 0x21E7,
+    [arrowDownShort]  = 0x2193,
+    [arrowDownLong]   = 0x21E9,
+    [multiplyDot]     = 0x22C5,
+    [multiplyCross]   = 0x2A2F,
 };
 
 #define KC_UA XP(ua, uA)
@@ -48,6 +52,7 @@ const uint32_t unicode_map[] PROGMEM = {
 #define KC_LARR XP(arrowLeftShort, arrowLeftLong)
 #define KC_DARR XP(arrowDownShort, arrowDownLong)
 #define KC_UARR XP(arrowUpShort, arrowUpLong)
+#define KC_MULT XP(multiplyDot, multiplyCross)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [1] = LAYOUT_ansi_82(
         _______,            UC_LINX,  UC_WINC,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MULT,  _______,  _______,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,    KC_UU,  _______,    KC_UO,  _______,  _______,  _______,  _______,            _______,
         _______,    KC_UA,    KC_US,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,            _______,
         _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  KC_UARR,
