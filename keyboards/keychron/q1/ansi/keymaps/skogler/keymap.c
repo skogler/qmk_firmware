@@ -10,6 +10,14 @@ enum UnicodeMapEntry {
     uU,
     us,
     uS,
+    arrowRightShort,
+    arrowRightLong,
+    arrowLeftShort,
+    arrowLeftLong,
+    arrowUpShort,
+    arrowUpLong,
+    arrowDownShort,
+    arrowDownLong,
 };
 
 const uint32_t unicode_map[] PROGMEM = {
@@ -21,12 +29,26 @@ const uint32_t unicode_map[] PROGMEM = {
     [uU]  = 0x00DC,
     [us]  = 0x00DF,
     [uS]  = 0x1E9E,
+    [arrowRightShort] = 0x2193,
+    [arrowRightLong] = 0x27F6,
+    [arrowLeftShort] = 0x2190,
+    [arrowLeftLong] = 0x27F5,
+    [arrowUpShort] = 0x2193,
+    [arrowUpLong] = 0x21E7,
+    [arrowDownShort] = 0x2193,
+    [arrowDownLong] = 0x21E9,
 };
 
 #define KC_UA XP(ua, uA)
 #define KC_UO XP(uo, uO)
 #define KC_UU XP(uu, uU)
 #define KC_US XP(us, uS)
+
+#define KC_RARR XP(arrowRightShort, arrowRightLong)
+#define KC_LARR XP(arrowLeftShort, arrowLeftLong)
+#define KC_DARR XP(arrowDownShort, arrowDownLong)
+#define KC_UARR XP(arrowUpShort, arrowUpLong)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_ansi_82(
@@ -42,8 +64,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,    KC_UU,  _______,    KC_UO,  _______,  _______,  _______,  _______,            _______,
         _______,    KC_UA,    KC_US,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,            _______,
-        _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        _______,  _______,  _______,                                _______,                                _______,  _______,  _______,  _______,  _______,  _______),
+        _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  KC_UARR,
+        _______,  _______,  _______,                                _______,                                _______,  _______,  _______,  KC_LARR,  KC_DARR,  KC_RARR),
 
     [2] = LAYOUT_ansi_82(
         _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
