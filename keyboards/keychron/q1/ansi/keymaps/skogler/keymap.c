@@ -8,7 +8,8 @@ enum UnicodeMapEntry {
     uO,
     uu,
     uU,
-    uU,
+    us,
+    uS,
 };
 
 const uint32_t unicode_map[] PROGMEM = {
